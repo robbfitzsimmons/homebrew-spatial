@@ -17,9 +17,8 @@ class LibtiffZstd < Formula
   depends_on "automake" => :build
   depends_on "libtool" => :build
   depends_on "jpeg"
+  depends_on "zlib"
   depends_on "zstd"
-
-  uses_from_macos "zlib"
 
   # Fix build on Monterey. Remove at next release.
   # Adapted from (to apply to the source tarball):
