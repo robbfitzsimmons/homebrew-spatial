@@ -17,6 +17,7 @@ class LibtiffZstd < Formula
   depends_on "automake" => :build
   depends_on "libtool" => :build
   depends_on "jpeg"
+  depends_on "zstd"
 
   uses_from_macos "zlib"
 
