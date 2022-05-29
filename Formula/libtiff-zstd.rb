@@ -32,6 +32,8 @@ class LibtiffZstd < Formula
     args = %W[
       --prefix=#{prefix}
       --disable-dependency-tracking
+      --disable-lzma
+      --disable-webp
       --with-jpeg-include-dir=#{Formula["jpeg"].opt_include}
       --with-jpeg-lib-dir=#{Formula["jpeg"].opt_lib}
       --without-x
