@@ -71,25 +71,25 @@ index 9e419fba12e2773a915abe0861fe95c9569ce00f..9e9927925821327674df9cef70fa7cd8
 +AC_CONFIG_HEADERS([config/config.h libtiff/tif_config.h libtiff/tiffconf.h port/libport_config.h])
  
  AC_CONFIG_FILES([Makefile \
-     build/Makefile \
+ 		 build/Makefile \
 @@ -1095,15 +1095,15 @@ AC_CONFIG_FILES([Makefile \
-     contrib/stream/Makefile \
-     contrib/tags/Makefile \
-     contrib/win_dib/Makefile \
+ 		 contrib/stream/Makefile \
+ 		 contrib/tags/Makefile \
+ 		 contrib/win_dib/Makefile \
 -                 html/Makefile \
-+    html/Makefile \
-     html/images/Makefile \
-     html/man/Makefile \
++		 html/Makefile \
+ 		 html/images/Makefile \
+ 		 html/man/Makefile \
 -                 libtiff-4.pc \
 -                 libtiff/Makefile \
 -                 man/Makefile \
-+    libtiff-4.pc \
-+    libtiff/Makefile \
-+    man/Makefile \
-     port/Makefile \
-     test/Makefile \
++		 libtiff-4.pc \
++		 libtiff/Makefile \
++		 man/Makefile \
+ 		 port/Makefile \
+ 		 test/Makefile \
 -                 tools/Makefile])
-+    tools/Makefile])
++		 tools/Makefile])
  AC_OUTPUT
  
  dnl ---------------------------------------------------------------------------
