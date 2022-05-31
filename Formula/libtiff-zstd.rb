@@ -1,4 +1,4 @@
-class Libtiff < Formula
+class LibtiffZstd < Formula
   desc "TIFF library and utilities with ZSTD codec enabled"
   homepage "https://libtiff.gitlab.io/libtiff/"
   url "https://download.osgeo.org/libtiff/tiff-4.4.0.tar.gz"
