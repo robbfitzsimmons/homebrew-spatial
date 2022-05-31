@@ -11,6 +11,7 @@ class LibtiffZstd < Formula
     regex(/href=.*?tiff[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
+  depends_on "jbigkit"
   depends_on "jpeg"
 
   uses_from_macos "zlib"
@@ -21,6 +22,8 @@ class LibtiffZstd < Formula
       --disable-dependency-tracking
       --disable-lzma
       --disable-webp
+      --with-jbig-include-dir=#{Formula["jbigkit"].opt_include}
+      --with-jbig-lib-dir=#{Formula["jbigkit"].opt_lib}
       --with-jpeg-include-dir=#{Formula["jpeg"].opt_include}
       --with-jpeg-lib-dir=#{Formula["jpeg"].opt_lib}
       --without-x
