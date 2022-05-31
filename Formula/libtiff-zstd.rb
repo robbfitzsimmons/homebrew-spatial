@@ -23,7 +23,6 @@ class LibtiffZstd < Formula
       --disable-lzma
       --disable-webp
       --with-jbig-include-dir=#{Formula["jbigkit"].opt_include}
-      --with-jbig-lib-dir=#{Formula["jbigkit"].opt_lib}
       --with-jpeg-include-dir=#{Formula["jpeg"].opt_include}
       --with-jpeg-lib-dir=#{Formula["jpeg"].opt_lib}
       --without-x
