@@ -11,15 +11,6 @@ class LibtiffZstd < Formula
     regex(/href=.*?tiff[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
-<<<<<<< HEAD
-=======
-  bottle do
-    root_url "https://github.com/robbfitzsimmons/homebrew-spatial/releases/download/libtiff-zstd-4.4.0"
-    sha256 cellar: :any,                 big_sur:      "ba80b9495438174e636492f1dd2c66314302b3629af68326714a8cb8a0a2fdb2"
-    sha256 cellar: :any_skip_relocation, x86_64_linux: "0d58d082272012230098e9c7b9c56fc5e2a70a3b9049b51f30304f6184ae698f"
-  end
-
->>>>>>> 964971de5aa55b2916cafda38c4abe04f7882a7f
   depends_on "jbigkit"
   depends_on "jpeg"
 
