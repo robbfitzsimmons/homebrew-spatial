@@ -17,6 +17,12 @@ class LittleCms2 < Formula
     regex(/Little\s*CMS\s+v?(\d+(?:\.\d+)+)\s+released/im)
   end
 
+  bottle do
+    root_url "https://github.com/robbfitzsimmons/homebrew-spatial/releases/download/little-cms2-2.13.1"
+    sha256 cellar: :any,                 big_sur:      "ebfec4bde28cfae918f96c4b8e527931c72c52230b7931a26b33698ef396ab6a"
+    sha256 cellar: :any_skip_relocation, x86_64_linux: "554685796a79849ff6f05c8413ee653c7ac3fb8fdd43a85cbe767716879f9c35"
+  end
+
   depends_on "jpeg-turbo"
   depends_on "robbfitzsimmons/spatial/libtiff"
 
