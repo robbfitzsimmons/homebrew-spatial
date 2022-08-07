@@ -5,6 +5,12 @@ class Webp < Formula
   sha256 "f5d7ab2390b06b8a934a4fc35784291b3885b557780d099bd32f09241f9d83f9"
   license "BSD-3-Clause"
 
+  bottle do
+    root_url "https://github.com/robbfitzsimmons/homebrew-spatial/releases/download/webp-1.2.3"
+    sha256 cellar: :any,                 big_sur:      "68bbbcc6c59cd0913243e37581fe1e21240f9758fac4644a59284303c2263e00"
+    sha256 cellar: :any_skip_relocation, x86_64_linux: "7fadfcfbe589ab70b320c1c7a05e6e3d33267d0572a35044440233c8c486d4d8"
+  end
+
   head do
     url "https://chromium.googlesource.com/webm/libwebp.git", branch: "main"
     depends_on "autoconf" => :build
