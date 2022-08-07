@@ -6,6 +6,12 @@ class Proj < Formula
   license "MIT"
   head "https://github.com/OSGeo/proj.git", branch: "master"
 
+  bottle do
+    root_url "https://github.com/robbfitzsimmons/homebrew-spatial/releases/download/proj-9.0.1"
+    sha256 big_sur:      "e0212cc423e14c9fef22fbf8c315cf493be0e4f37f07659ad5615c6f787b1ebd"
+    sha256 x86_64_linux: "9b7f019a3770541a36ff74da751afe0e42139cd156d87a611713caa831dafd58"
+  end
+
   depends_on "cmake" => :build
   depends_on "libtool" => :build
   depends_on "pkg-config" => :build
