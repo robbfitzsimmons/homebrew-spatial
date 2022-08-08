@@ -6,6 +6,12 @@ class Openjpeg < Formula
   license "BSD-2-Clause"
   head "https://github.com/uclouvain/openjpeg.git", branch: "master"
 
+  bottle do
+    root_url "https://github.com/robbfitzsimmons/homebrew-spatial/releases/download/openjpeg-2.5.0"
+    sha256 cellar: :any,                 big_sur:      "74c23b74bb04c3af2d844f6ac785f0d8cb05a535d1fa310b138bb78dea07e6a5"
+    sha256 cellar: :any_skip_relocation, x86_64_linux: "5a948e625c24b9494273be14d8f11320289107b40b16f630d38d348b59c0e26b"
+  end
+
   depends_on "cmake" => :build
   depends_on "doxygen" => :build
   depends_on "libpng"
