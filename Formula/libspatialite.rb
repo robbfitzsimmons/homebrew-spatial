@@ -19,6 +19,12 @@ class Libspatialite < Formula
     regex(/href=.*?libspatialite[._-]v?(\d+(?:\.\d+)+[a-z]?)\.t/i)
   end
 
+  bottle do
+    root_url "https://github.com/robbfitzsimmons/homebrew-spatial/releases/download/libspatialite-5.0.1"
+    sha256 cellar: :any,                 big_sur:      "005c95c991ce1b9d4c19bacbb22c372bbcfa487b0a8eeec9c3e23f922aabced0"
+    sha256 cellar: :any_skip_relocation, x86_64_linux: "b9dd364143b0d5cb5ac3b5709d904148b714e5c87b072b946df2eaceb098d1e4"
+  end
+
   head do
     url "https://www.gaia-gis.it/fossil/libspatialite", using: :fossil
     depends_on "autoconf" => :build
