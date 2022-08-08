@@ -19,6 +19,12 @@ class Libgeotiff < Formula
     regex(/^v?(\d+(?:\.\d+)+)$/i)
   end
 
+  bottle do
+    root_url "https://github.com/robbfitzsimmons/homebrew-spatial/releases/download/libgeotiff-1.7.1"
+    sha256 cellar: :any,                 big_sur:      "4d62d87f0015f28f942b2c5d72fa40444174fc5cbc3e9410dd1fbea8c2f73ea3"
+    sha256 cellar: :any_skip_relocation, x86_64_linux: "8887a1fea37e8fac69f18768a646ce543cbae1779296a2f636be019b45b852b2"
+  end
+
   head do
     url "https://github.com/OSGeo/libgeotiff.git", branch: "master"
 
