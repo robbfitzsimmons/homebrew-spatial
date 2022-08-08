@@ -11,6 +11,12 @@ class Poppler < Formula
     regex(/href=.*?poppler[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
+  bottle do
+    root_url "https://github.com/robbfitzsimmons/homebrew-spatial/releases/download/poppler-22.06.0"
+    sha256 big_sur:      "f37b6523207ba8415c37db3f2f2a1c6914be5e0014fae19b468e3186642a8429"
+    sha256 x86_64_linux: "79089915bd92a1a8a11cbaf2546f2a891b66086d5f21217c0a66c03a56fd8ebb"
+  end
+
   depends_on "cmake" => :build
   depends_on "glib-utils" => :build
   depends_on "gobject-introspection" => :build
