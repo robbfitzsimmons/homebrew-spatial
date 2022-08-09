@@ -11,6 +11,12 @@ class Libtiff < Formula
     regex(/href=.*?tiff[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
+  bottle do
+    root_url "https://github.com/robbfitzsimmons/homebrew-spatial/releases/download/libtiff-4.4.0"
+    rebuild 1
+    sha256 cellar: :any, big_sur: "d7545257d43de87215034c450a6ed010535594cab2b31d5315f10e798886d094"
+  end
+
   depends_on "jbigkit"
   depends_on "jpeg"
 
