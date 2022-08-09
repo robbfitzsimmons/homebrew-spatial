@@ -32,7 +32,7 @@ class Gdal < Formula
   depends_on "netcdf"
   depends_on "numpy"
   depends_on "pcre2"
-  depends_on "python@3.9"
+  depends_on "python@3.10"
   depends_on "robbfitzsimmons/spatial/libgeotiff"
   depends_on "robbfitzsimmons/spatial/libspatialite"
   depends_on "robbfitzsimmons/spatial/libtiff"
@@ -155,7 +155,7 @@ class Gdal < Formula
 
     # Build Python bindings
     cd "swig/python" do
-      system Formula["python@3.9"].opt_bin/"python3", *Language::Python.setup_install_args(prefix)
+      system Formula["python@3.10"].opt_bin/"python3", *Language::Python.setup_install_args(prefix)
     end
     bin.install Dir["swig/python/scripts/*.py"]
 
@@ -171,6 +171,6 @@ class Gdal < Formula
     system "#{bin}/gdalinfo", "--formats"
     system "#{bin}/ogrinfo", "--formats"
     # Changed Python package name from "gdal" to "osgeo.gdal" in 3.2.0.
-    system Formula["python@3.9"].opt_bin/"python3", "-c", "import osgeo.gdal"
+    system Formula["python@3.10"].opt_bin/"python3", "-c", "import osgeo.gdal"
   end
 end
