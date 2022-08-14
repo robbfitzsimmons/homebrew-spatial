@@ -10,12 +10,6 @@ class Gdal < Formula
     regex(/href=.*?gdal[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
-  bottle do
-    root_url "https://github.com/robbfitzsimmons/homebrew-spatial/releases/download/gdal-3.5.1"
-    sha256 big_sur:      "1857afb5037e5b7a444a08c12131d2b344cd1755db916e61a5199de9889aab54"
-    sha256 x86_64_linux: "4896652f14b31d16be877322fbbd21d9b732381c4855f956fe2fe9a53e2a87aa"
-  end
-
   head do
     url "https://github.com/OSGeo/gdal.git", branch: "master"
     depends_on "doxygen" => :build
@@ -83,11 +77,11 @@ class Gdal < Formula
       "--with-expat=#{Formula["expat"].prefix}",
       "--with-freexl=#{Formula["freexl"].opt_prefix}",
       "--with-geos=#{Formula["geos"].opt_prefix}/bin/geos-config",
-      "--with-geotiff=#{Formula["libgeotiff"].opt_prefix}",
+      "--with-geotiff=internal",
       "--with-gif=#{Formula["giflib"].opt_prefix}",
       "--with-jpeg=#{Formula["jpeg"].opt_prefix}",
       "--with-libjson-c=#{Formula["json-c"].opt_prefix}",
-      "--with-libtiff=#{Formula["libtiff"].opt_prefix}",
+      "--with-libtiff=internal",
       "--with-pg=yes",
       "--with-png=#{Formula["libpng"].opt_prefix}",
       "--with-spatialite=#{Formula["libspatialite"].opt_prefix}",
