@@ -1,4 +1,17 @@
-# Robbfitzsimmons Spatial
+# Custom spatial brew formulas
+
+## Formulas
+
+Focused on bundling `zstd` compression support for `gdal`.
+- `gdal`
+- `libspatialite`
+- `libtiff`
+- `libgeotiff`
+- `little-cms2`
+- `openjpeg`
+- `poppler`
+- `proj`
+- `webp`
 
 ## How do I install these formulae?
 
