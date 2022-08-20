@@ -10,12 +10,6 @@ class Gdal < Formula
     regex(/href=.*?gdal[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
-  bottle do
-    root_url "https://github.com/robbfitzsimmons/homebrew-spatial/releases/download/gdal-3.5.1"
-    rebuild 1
-    sha256 big_sur: "16ca72c02bd1a85bd6c0f9364fe267f33888013751273c2f4fb3e487b996dcc5"
-  end
-
   head do
     url "https://github.com/OSGeo/gdal.git", branch: "master"
     depends_on "doxygen" => :build
@@ -29,7 +23,7 @@ class Gdal < Formula
   depends_on "geos"
   depends_on "giflib"
   depends_on "hdf5"
-  depends_on "jpeg"
+  depends_on "jpeg-turbo"
   depends_on "json-c"
   depends_on "libdap"
   depends_on "libpng"
@@ -64,6 +58,10 @@ class Gdal < Formula
 
   fails_with gcc: "5"
 
+  def python3
+    "python3.10"
+  end
+
   def install
     args = [
       # Base configuration
@@ -85,7 +83,7 @@ class Gdal < Formula
       "--with-geos=#{Formula["geos"].opt_prefix}/bin/geos-config",
       "--with-geotiff=internal",
       "--with-gif=#{Formula["giflib"].opt_prefix}",
-      "--with-jpeg=#{Formula["jpeg"].opt_prefix}",
+      "--with-jpeg=#{Formula["jpeg-turbo"].opt_prefix}",
       "--with-libjson-c=#{Formula["json-c"].opt_prefix}",
       "--with-libtiff=internal",
       "--with-pg=yes",
@@ -154,29 +152,28 @@ class Gdal < Formula
       ENV.append "CFLAGS", "-I#{buildpath}/gnm"
     end
 
-    ENV.append "CXXFLAGS", "-std=c++17" # poppler-qt5 uses std::optional
     system "./configure", *args
     system "make"
     system "make", "install"
 
     # Build Python bindings
     cd "swig/python" do
-      system Formula["python@3.10"].opt_bin/"python3", *Language::Python.setup_install_args(prefix)
+      system python3, *Language::Python.setup_install_args(prefix, python3)
     end
-    bin.install Dir["swig/python/scripts/*.py"]
+    bin.install buildpath.glob("swig/python/scripts/*.py")
 
     system "make", "man" if build.head?
     # Force man installation dir: https://trac.osgeo.org/gdal/ticket/5092
     system "make", "install-man", "INST_MAN=#{man}"
     # Clean up any stray doxygen files
-    Dir.glob("#{bin}/*.dox") { |p| rm p }
+    bin.glob("*.dox").map(&:unlink)
   end
 
   test do
     # basic tests to see if third-party dylibs are loading OK
-    system "#{bin}/gdalinfo", "--formats"
-    system "#{bin}/ogrinfo", "--formats"
+    system bin/"gdalinfo", "--formats"
+    system bin/"ogrinfo", "--formats"
     # Changed Python package name from "gdal" to "osgeo.gdal" in 3.2.0.
-    system Formula["python@3.10"].opt_bin/"python3", "-c", "import osgeo.gdal"
+    system python3, "-c", "import osgeo.gdal"
   end
 end
