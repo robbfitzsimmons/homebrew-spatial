@@ -10,6 +10,12 @@ class Gdal < Formula
     regex(/href=.*?gdal[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
+  bottle do
+    root_url "https://github.com/robbfitzsimmons/homebrew-spatial/releases/download/gdal-3.5.1"
+    rebuild 2
+    sha256 big_sur: "e18ebc3566e3b7bfcc487dc00889cdaceb70dfaefdbd6e66792cae47af49ef8f"
+  end
+
   head do
     url "https://github.com/OSGeo/gdal.git", branch: "master"
     depends_on "doxygen" => :build
